@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, Response
+from flask_cors import CORS
 from summary_parser import get_json
 from summary_plotters import get_cartoon_heatmap, get_png_bytes
 
@@ -7,6 +8,7 @@ app = Flask(__name__,
             template_folder = "./dist")
 app.config['JSON_SORT_KEYS'] = False
 application = app  # for AWS EB
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 @app.route('/api/summary/<accession>')
 def summary_json(accession):
