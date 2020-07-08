@@ -1,4 +1,4 @@
-# serratus.io
+# serratus-api
 
 Serratus website API built using Flask.
 
